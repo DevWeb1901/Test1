@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Deza Store - Top Up Robux</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body {
+  margin: 0;
+  background: linear-gradient(#f3f3f3, #e1e1e1);
+  color: #222;
+}
+
+header {
+  background: white;
+  padding: 15px;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.container { padding: 10px; }
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card h3 { margin-top: 0; }
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  display: block;
+  margin-top: 12px;
+  padding: 12px;
+  background: #dcdcdc;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #cfcfcf;
+}
+
+footer {
+  background: #eee;
+  padding: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  DEZA STORE — TOP UP ROBUX
+</header>
+
+<div class="container">
+
+  <!-- ORDER -->
+  <div class="card">
+    <h3>🛒 Order Robux</h3>
+
+    <label>Username Roblox</label>
+    <input type="text" id="user" placeholder="Contoh: DezaGaming123">
+
+    <label>Jumlah Robux</label>
+    <input type="number" id="jumlah" placeholder="Contoh: 200">
+
+    <a class="btn" onclick="order()">Order via WhatsApp</a>
+  </div>
+
+  <!-- TUTORIAL -->
+  <div class="card">
+    <h3>📘 Tutorial Jika Belum Punya Gamepass</h3>
+    <ol>
+      <li>Masuk ke <b>Roblox.com</b></li>
+      <li>Buka menu <b>Create</b></li>
+      <li>Pilih <b>Game / Experience</b></li>
+      <li>Klik <b>Passes</b> → <b>Create Pass</b></li>
+      <li>Isi nama bebas (contoh: Robux200)</li>
+      <li>Set harga sesuai pesanan</li>
+      <li>Copy link Gamepass & kirim ke admin</li>
+    </ol>
+  </div>
+
+  <!-- CEK PESANAN -->
+  <div class="card">
+    <h3>🔍 Cek Pesanan</h3>
+    <input type="text" id="cek" placeholder="Masukkan username">
+    <a class="btn" onclick="cek()">Cek Status</a>
+    <p id="hasil"></p>
+  </div>
+
+  <!-- SALURAN -->
+  <div class="card">
+    <h3>📢 Saluran Resmi</h3>
+    <a class="btn" href="https://whatsapp.com/channel/0029Vb7RHYLChq6OlHXMv02m" target="_blank">
+      Join Channel WhatsApp
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Deza Store • Aman & Terpercaya
+</footer>
+
+<script>
+function order() {
+  let user = document.getElementById("user").value;
+  let jumlah = document.getElementById("jumlah").value;
+
+  if (user === "" || jumlah === "") {
+    alert("Isi username dan jumlah robux!");
+    return;
+  }
+
+  let pesan = `Halo Admin, saya mau order Robux.\n\nUsername: ${user}\nJumlah: ${jumlah} Robux`;
+  let url = "https://wa.me/6287897493566?text=" + encodeURIComponent(pesan);
+
+  window.open(url, "_blank");
+}
+
+function cek() {
+  let c = document.getElementById("cek").value;
+  if (c === "") {
+    alert("Masukkan username!");
+  } else {
+    document.getElementById("hasil").innerHTML =
+      "✅ Pesanan atas nama <b>" + c + "</b> sedang diproses.";
+  }
+}
+</script>
+
+</body>
+</html>
